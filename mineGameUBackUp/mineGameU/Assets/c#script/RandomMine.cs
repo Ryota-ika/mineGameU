@@ -14,9 +14,9 @@ public class RandomMine : MonoBehaviour {
 
     void Awake( ) {
         for( int i = 0; i < input_mine_count; i++ ) {
-            if( !( player.player_pos.x == 0 && player.player_pos.y == 9 ) || !( player.player_pos.x == 9 && player.player_pos.y == 0 ) ) {
-                int rand_x = Random.Range( 0, 10 );
-                int rand_y = Random.Range( 0, 10 );
+            int rand_x = Random.Range( 0, 10 );
+            int rand_y = Random.Range( 0, 10 );
+            if( !( player.player_pos.x == 0 && player.player_pos.y == 9 ) && !( player.player_pos.x == 9 && player.player_pos.y == 0 ) ) {
                 Instantiate( mine_quad, new Vector3( rand_x, rand_y, 0 ), Quaternion.identity );
             }
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
     public GameObject player_quad;
@@ -12,6 +13,7 @@ public class PlayerController : MonoBehaviour {
     List<MineExplosion> mine=new List<MineExplosion>();
     public GameObject[ ] mineObj = { };
     cube100 field = new cube100( );
+    public GameObject clear_text;
     // Start is called before the first frame update
     void Start( ) {
         //フィールドに存在する地雷を全て取得
@@ -41,7 +43,12 @@ public class PlayerController : MonoBehaviour {
         player_quad.transform.position = player_pos;
 
         if( player_pos.x == 9 && player_pos.y == 0 ) {
-            Debug.Log( "ゲームクリア" );
+            //Debug.Log( "ゲームクリア" );
+            for( int i = 0; i < mineObj.Length; i++ ) {
+                mineObj[i].SendMessage("Clear");
+            }
+            Text ct=clear_text.GetComponent<Text>();
+            ct.text="ゲームクリア！\n爆弾の位置はここでした";
         }
         MinePosition( );
     }

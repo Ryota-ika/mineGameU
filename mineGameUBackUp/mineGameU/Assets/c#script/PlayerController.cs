@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour {
     public GameObject[ ] mineObj = { };
     cube100 field = new cube100( );
     public GameObject clear_text;
+    public GameObject near_position_text;
     // Start is called before the first frame update
     void Start( ) {
         //フィールドに存在する地雷を全て取得
@@ -49,6 +50,7 @@ public class PlayerController : MonoBehaviour {
             }
             Text ct=clear_text.GetComponent<Text>();
             ct.text="ゲームクリア！\n爆弾の位置はここでした";
+
         }
         MinePosition( );
     }
@@ -82,7 +84,9 @@ public class PlayerController : MonoBehaviour {
                 min_Distance=distance;
             }
         }
-        Debug.Log("一番近い爆弾の距離は"+min_Distance);
+        Text np=near_position_text.GetComponent<Text>();
+        np.text="一番近い爆弾の距離は"+min_Distance+"です";
+        //Debug.Log("一番近い爆弾の距離は"+min_Distance);
         //mindistanceに最小値が入っている状態を作り出したい
         //Debug.Log("一番近い爆弾の距離は"+Mathf.Min( mine_list,mine_list));/*mine_list.Min().ToString()*/;
     }

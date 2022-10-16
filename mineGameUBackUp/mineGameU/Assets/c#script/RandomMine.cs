@@ -16,7 +16,7 @@ public class RandomMine : MonoBehaviour {
         for( int i = 0; i < input_mine_count; i++ ) {
             int rand_x = Random.Range( 0, 10 );
             int rand_y = Random.Range( 0, 10 );
-            if( !( player.player_pos.x == 0 && player.player_pos.y == 9 ) && !( player.player_pos.x == 9 && player.player_pos.y == 0 ) ) {
+            if( !( rand_x == 0 && rand_y == 9 ) && !( rand_x == 9 && rand_y == 0 ) ) {
                 Instantiate( mine_quad, new Vector3( rand_x, rand_y, 0 ), Quaternion.identity );
             }
         }

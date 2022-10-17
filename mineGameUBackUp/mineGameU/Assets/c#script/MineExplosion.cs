@@ -26,7 +26,9 @@ public class MineExplosion : MonoBehaviour {
     // Update is called once per frame
     void Update( ) {
         mine_pos = this.gameObject.transform.position;
-        if( this.gameObject.transform.position == player.player_quad.transform.position ) {
+        Vector2 p_pos=new Vector2(player.player_quad.transform.position.x,player.player_quad.transform.position.y);
+        Vector2 m_pos=new Vector2(mine_pos.x,mine_pos.y);
+        if( p_pos==m_pos ) {
             //Debug.Log( "爆発に触れました。" );
             //player.player_quad.SetActive( false );
             var player_controller = mineField.GetComponent<PlayerController>( );
@@ -34,9 +36,8 @@ public class MineExplosion : MonoBehaviour {
             //Debug.Log( "ゲーム終了" );
             for( int i = 0; i < mineObj.Length; i++ ) {
                 mineObj[ i ].SendMessage( "Clear" );
-
             }
-            explosion_text=GameObject.Find("explosion_text");
+            explosion_text =GameObject.Find("explosion_text");
             Text et=explosion_text.GetComponent<Text>();
             et.text="爆発しました。\nゲーム終了!\n\n\n爆弾の位置はここでした";
         }

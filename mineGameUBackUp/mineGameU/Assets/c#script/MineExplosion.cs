@@ -16,7 +16,7 @@ public class MineExplosion : MonoBehaviour {
         mineField = GameObject.Find( "mineField" );
         player = mineField.GetComponent<PlayerController>( );
 
-        mineObj = GameObject.FindGameObjectsWithTag( "mine" );//‚±‚±‚É‚àBP‚µ‚Ä‚Ý‚æ‚¤
+        mineObj = GameObject.FindGameObjectsWithTag( "mine" );
         for( int i = 0; i < mineObj.Length; i++ ) {
             //mine[ i ] = mineObj[ i ].GetComponent<MineExplosion>( );
             mine.Add( mineObj[ i ].GetComponent<MineExplosion>( ) );

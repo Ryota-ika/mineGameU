@@ -337,6 +337,7 @@ MonoBehaviour:
   mineObj: []
   clear_text: {fileID: 246635164}
   near_position_text: {fileID: 814526024}
+  explanation_text: {fileID: 728369867}
 --- !u!114 &460594796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,7 +350,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92bb01befa8fbda49bccb2a9ac3e286b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input_mine_count: 5
   input_max_mine_count: 5
   mine_quad: {fileID: 8064657886162737835, guid: 6f97491965f524c4d912b0bfaf63af62,
     type: 3}
@@ -519,7 +519,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u7206\u5F3E\u3092\u907F\u3051\u306A\u304C\u3089\u30B4\u30FC\u30EB\u3092\u76EE\u6307\u305D\u3046\uFF01\n\n\u64CD\u4F5C\nD\u3092\u62BC\u3059\u3068\u2192\nS\u3092\u62BC\u3059\u3068\u2193\n\u306B\u79FB\u52D5\u3059\u308B"
+  m_Text: 
 --- !u!222 &728369870
 CanvasRenderer:
   m_ObjectHideFlags: 0

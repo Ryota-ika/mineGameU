@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class RandomMine : MonoBehaviour
 {
-    int end = 100;
-    public int input_mine_count = 5;
     public int input_max_mine_count = 5;
     public GameObject mine_quad;
     public List<Vector2> list = new List<Vector2>();
@@ -26,26 +24,19 @@ public class RandomMine : MonoBehaviour
             int rand_x = Random.Range(0, 10);
             int rand_y = Random.Range(0, 10);
 
-            if (!list.Contains(new Vector2(rand_x, rand_y)))
+            if (!list.Contains(new Vector3(rand_x, rand_y,-0.01f)))
             {
-                Vector3 random_pos = new Vector3(rand_x, rand_y, -0.01f);
                 if (!(rand_x == 0 && rand_y == 9) && !(rand_x == 9 && rand_y == 0))
                 {
-                    Instantiate(mine_quad, random_pos, Quaternion.identity);
+                    Instantiate(mine_quad, new Vector3(rand_x,rand_y,-0.01f), Quaternion.identity);
                 }
-                list.Add(new Vector2(rand_x, rand_y));
+                list.Add(new Vector3(rand_x, rand_y,-0.01f));
+            } 
+            else {
+                input_max_mine_count++;
+                //list.Add(new Vector3(rand_x,rand_y,-0.01f));
+                //list.RemoveRange(new Vector3(rand_x,rand_y,-0.01f));
             }
-            else
-            {
-
-            }
-        }
-        while (end-- > 0)
-        {
-
-            //list.Contains(rand_x);
-            //list.RemoveAt(rand_x );
-            //list.RemoveAt(rand_y );
         }
         //for( int i = 0; i < input_mine_count; i++ ) {
         //    list.Add(i);

@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class RandomMine : MonoBehaviour {
-
+public class RandomMine : MonoBehaviour
+{
+    int end = 100;
     public int input_mine_count = 5;
+    public int input_max_mine_count = 5;
     public GameObject mine_quad;
-    public List<int> list=new List<int>();
+    public List<Vector2> list = new List<Vector2>();
     //public const int RANDOM_HEIGHT = 10;
     //public const int RANDOM_WIDTH = 10;
     //PlayerController player = new PlayerController( );
@@ -15,20 +17,35 @@ public class RandomMine : MonoBehaviour {
     //bool[,] aa=new bool[ width, height ];//const プログラム中変えることができない数値 static 実行中いかなるタイミングにも存在する変数
     // Start is called before the first frame update
 
-    void Awake( ) {
-        for( int i = 0; i < input_mine_count; i++ ) {
-            list.Add( i );
-        }
-        while( list.Count > 0 ) {
-            
-            int rand_x = Random.Range( 0, 10 );
-            int rand_y = Random.Range( 0, 10 );
-            Vector3 random_pos= new Vector3( rand_x, rand_y, -0.01f );
-            if( !( rand_x == 0 && rand_y == 9 ) && !( rand_x == 9 && rand_y == 0 ) ) {
-                Instantiate(mine_quad, random_pos, Quaternion.identity );
+    void Awake()
+    {
+        for (int i = 0; i < input_max_mine_count; i++)
+        {
+
+
+            int rand_x = Random.Range(0, 10);
+            int rand_y = Random.Range(0, 10);
+
+            if (!list.Contains(new Vector2(rand_x, rand_y)))
+            {
+                Vector3 random_pos = new Vector3(rand_x, rand_y, -0.01f);
+                if (!(rand_x == 0 && rand_y == 9) && !(rand_x == 9 && rand_y == 0))
+                {
+                    Instantiate(mine_quad, random_pos, Quaternion.identity);
+                }
+                list.Add(new Vector2(rand_x, rand_y));
             }
+            else
+            {
+
+            }
+        }
+        while (end-- > 0)
+        {
+
             //list.Contains(rand_x);
-            //list.Remove(rand_x );
+            //list.RemoveAt(rand_x );
+            //list.RemoveAt(rand_y );
         }
         //for( int i = 0; i < input_mine_count; i++ ) {
         //    list.Add(i);
@@ -53,13 +70,15 @@ public class RandomMine : MonoBehaviour {
         //    }
         //        return new Vector3( x, y, -0.01f );
 
-        }
-        void Start( ) {
+    }
+    void Start()
+    {
 
     }
 
     // Update is called once per frame
-    void Update( ) {
+    void Update()
+    {
 
     }
 }

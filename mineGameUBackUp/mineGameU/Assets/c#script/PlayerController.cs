@@ -57,14 +57,9 @@ public class PlayerController : MonoBehaviour {
 
     void MinePosition( ) {
         float min_Distance=100;
-        //mindistanceに最初に入る値は0とかだとそれがそのまま最小になっちゃう可能性があるから最小にならないであろう数がいいね
-        //そうOK
-        //最小値に対して代入する必要があるね
-        //distanceはシンプルに距離を測った結果、最終的に出力する必要のある最小値は
+        //最小値に対して代入する必要がある
+        //distanceは距離を測った結果、最終的に出力する必要のある最小値は
         //そこのfor文で最小値を割り出してる
-        //mine_listがややこしいな
-        //listのmin関数がなぜか使えなかったから手動で割り出そうって話になったと思うけど
-        //そうなるとlistはもう必要じゃなくなると思うそうsou
         //List<float> mine_list= new List<float>();
         for( int i = 0; i < mine.Count; i++ ) {//長さの指定かも　mineの長さで計算してみてmine.lengthそこは変えなくていいよここで指定する変数を変えてほしい
 
@@ -76,18 +71,14 @@ public class PlayerController : MonoBehaviour {
             //}
             if( min_Distance>distance/*最小の距離を指す変数が今回の繰り返しで割り出された距離より大きかった場合*/ ) {//これkここの指揮逆かもOK
                 //mine_list.Add(distance);
-                //min_DIstanceを更新すればいいだけ
-                //min_Distanceが最小値になるためにはどの値を入れればいい？そうそうそう
-                //上のif文は最小値が最小値でなかった場合に呼び出されて最少を更新した値を代入している
-                //あとは出力するのみ
-                //さっきの状態はおかしいね
+                //min_DIstanceを更新
+                //min_Distanceが最小値になるためにはどの値を入れればいい？
                 min_Distance=distance;
             }
         }
         Text np=near_position_text.GetComponent<Text>();
         np.text="一番近い爆弾の距離は"+min_Distance+"です";
         //Debug.Log("一番近い爆弾の距離は"+min_Distance);
-        //mindistanceに最小値が入っている状態を作り出したい
         //Debug.Log("一番近い爆弾の距離は"+Mathf.Min( mine_list,mine_list));/*mine_list.Min().ToString()*/;
     }
 }

@@ -350,13 +350,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input_mine_count: 5
+  input_max_mine_count: 5
   mine_quad: {fileID: 8064657886162737835, guid: 6f97491965f524c4d912b0bfaf63af62,
     type: 3}
-  kugi: {fileID: 8064657886162737835, guid: 6f97491965f524c4d912b0bfaf63af62, type: 3}
-  xMinPosition: 0
-  xMaxPosition: 10
-  yMinPosition: 0
-  yMaxPosition: 10
+  list: []
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

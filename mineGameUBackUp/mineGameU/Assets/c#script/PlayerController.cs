@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour {
     // Update is called once per frame
     void Update( ) {
         Text et=explanation_text.GetComponent<Text>();
-        et.text="爆弾を避けながらゴールを目指そう！\n\n操作\nDを押すと→\nSを押すと↓\nに移動するよ";
+        et.text="爆弾を避けながら右下のゴールを目指そう！\n\n操作\nDを押すと→\nSを押すと↓\nに移動するよ";
         if( Input.GetKeyDown( KeyCode.D ) && player_pos.x < 9 ) {
             //FieldData();
             player_pos.x += 1f;
